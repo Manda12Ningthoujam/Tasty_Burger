@@ -7,10 +7,17 @@ import Menu from "./paths/Menu";
 import Shop from "./paths/Shop";
 import Contact from "./paths/Contact";
 import Blog from "./paths/Blog";
+import ShoppingCart from "./pages/Home/ShoppingCart";
+import Checkout from "./pages/Home/Checkout";
 import { CartProvider } from "../src/context/CartContext";
+import { MockDataProvider } from "./context/MockDataContext";
+
+
+
 
 function App() {
   return (
+    <MockDataProvider>
     <CartProvider>
       <Router>
       <Routes>
@@ -20,12 +27,15 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/shoppingCart" element={<ShoppingCart />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/signin" element={<LoginSignUp />} />
+        
       </Routes>
       </Router>
 
     </CartProvider>
-    
+    </MockDataProvider>
   );
 }
 
